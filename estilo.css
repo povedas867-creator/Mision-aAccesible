@@ -1,0 +1,543 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #101522;
+    color: white;
+}
+
+
+/* ================= GENERAL ================= */
+
+.pantalla {
+    min-height: 100vh;
+    width: 100%;
+    padding: 30px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+}
+
+.oculto {
+    display: none !important;
+}
+
+button {
+    border: none;
+    border-radius: 12px;
+
+    padding: 15px 25px;
+    margin: 8px;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    background: white;
+    color: #101522;
+
+    transition: 0.2s;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+
+/* ================= MENÚ ================= */
+
+#menu {
+    background: linear-gradient(135deg, #101522, #263c63);
+}
+
+.contenedor-menu h1 {
+    font-size: 52px;
+    margin-bottom: 15px;
+}
+
+.contenedor-menu p {
+    font-size: 23px;
+    margin-bottom: 30px;
+}
+
+
+/* ================= MISIONES ================= */
+
+#misiones {
+    background: #151c2d;
+}
+
+#misiones h2 {
+    font-size: 40px;
+    margin-bottom: 30px;
+}
+
+.misiones {
+    display: grid;
+
+    grid-template-columns: repeat(2, 260px);
+
+    gap: 20px;
+
+    margin-bottom: 20px;
+}
+
+.misiones button {
+    height: 180px;
+
+    font-size: 25px;
+
+    border-radius: 20px;
+
+    background: #ffffff;
+}
+
+.misiones small {
+    font-size: 16px;
+}
+
+#btnMision2 {
+    background: #fff3c4;
+}
+
+#btnMision3 {
+    background: #dff4ff;
+}
+
+#btnMision4 {
+    background: #e5dcff;
+}
+
+#estadoMisiones {
+    margin: 15px;
+
+    font-size: 18px;
+}
+
+
+/* ================= JUEGO ================= */
+
+#juego {
+    justify-content: flex-start;
+
+    background: #101522;
+}
+
+header {
+    width: 100%;
+    max-width: 950px;
+
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 20px;
+}
+
+header h2 {
+    font-size: 30px;
+}
+
+#subtituloMision {
+    margin-top: 5px;
+    color: #b8c7e0;
+}
+
+.informacion {
+    display: flex;
+
+    gap: 25px;
+
+    font-size: 20px;
+}
+
+
+/* ================= MISION 1 ================= */
+
+#juegoMision1 {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#escenario {
+    width: 900px;
+    max-width: 95%;
+
+    height: 450px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    border: 5px solid white;
+    border-radius: 20px;
+
+    background: #6fa36f;
+}
+
+.ruta {
+    position: absolute;
+
+    background: #d5d5d5;
+
+    border-top: 5px solid white;
+    border-bottom: 5px solid white;
+}
+
+.ruta1 {
+    left: 0;
+    bottom: 90px;
+
+    width: 100%;
+    height: 110px;
+}
+
+.ruta2 {
+    left: 650px;
+    bottom: 90px;
+
+    width: 110px;
+    height: 260px;
+}
+
+.zona-inicio {
+    position: absolute;
+
+    left: 10px;
+    bottom: 205px;
+
+    font-weight: bold;
+
+    color: #222;
+}
+
+#personaje {
+    position: absolute;
+
+    left: 30px;
+    bottom: 125px;
+
+    font-size: 50px;
+
+    z-index: 10;
+
+    transition: 0.12s;
+}
+
+#objetivo {
+    position: absolute;
+
+    right: 35px;
+    top: 30px;
+
+    font-size: 55px;
+
+    z-index: 5;
+}
+
+.obstaculo {
+    position: absolute;
+
+    font-size: 48px;
+
+    z-index: 8;
+}
+
+.obstaculo1 {
+    left: 300px;
+    bottom: 125px;
+}
+
+.obstaculo2 {
+    left: 520px;
+    bottom: 125px;
+}
+
+#instrucciones {
+    margin-top: 20px;
+
+    max-width: 800px;
+}
+
+#instrucciones h3 {
+    margin-bottom: 8px;
+
+    font-size: 22px;
+}
+
+#instrucciones p {
+    font-size: 17px;
+
+    line-height: 1.5;
+}
+
+#controles {
+    margin-top: 15px;
+
+    text-align: center;
+}
+
+#controles button {
+    width: 65px;
+    height: 55px;
+
+    padding: 5px;
+
+    font-size: 25px;
+}
+
+
+/* ================= MISIONES 2-4 ================= */
+
+#prueba {
+    width: 100%;
+    max-width: 900px;
+
+    margin: auto;
+}
+
+.barra-progreso {
+    width: 100%;
+
+    height: 18px;
+
+    background: #293248;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    margin-bottom: 10px;
+}
+
+#progresoBarra {
+    width: 33%;
+
+    height: 100%;
+
+    background: #4caf50;
+
+    transition: width 0.3s;
+}
+
+#progresoTexto {
+    text-align: center;
+
+    margin-bottom: 20px;
+
+    color: #cbd5e1;
+}
+
+.tarjeta-prueba {
+    background: #1d2638;
+
+    border: 2px solid #52627d;
+
+    border-radius: 20px;
+
+    padding: 35px;
+
+    text-align: center;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+#iconoPrueba {
+    font-size: 60px;
+
+    margin-bottom: 15px;
+}
+
+#tituloPrueba {
+    font-size: 28px;
+
+    margin-bottom: 15px;
+}
+
+#pregunta {
+    font-size: 21px;
+
+    line-height: 1.5;
+
+    margin-bottom: 25px;
+}
+
+#opciones {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 15px;
+}
+
+.opcion {
+    min-height: 80px;
+
+    margin: 0;
+
+    font-size: 17px;
+
+    background: white;
+
+    color: #151c2d;
+}
+
+.correcta {
+    background: #80d89a !important;
+}
+
+.incorrecta {
+    background: #ff8585 !important;
+}
+
+#mensajePrueba {
+    min-height: 30px;
+
+    margin-top: 20px;
+
+    font-size: 18px;
+
+    font-weight: bold;
+}
+
+#botonContinuar {
+    margin-top: 15px;
+}
+
+
+/* ================= VICTORIA ================= */
+
+#victoria {
+    background: linear-gradient(135deg, #163c29, #236b43);
+}
+
+.resultado {
+    text-align: center;
+}
+
+.resultado > div:first-child {
+    font-size: 80px;
+
+    margin-bottom: 15px;
+}
+
+#victoria h1,
+#derrota h1 {
+    font-size: 45px;
+
+    margin-bottom: 15px;
+}
+
+#victoria h2 {
+    margin-bottom: 10px;
+}
+
+#mensajeVictoria {
+    font-size: 20px;
+
+    max-width: 600px;
+
+    line-height: 1.5;
+
+    margin: auto;
+}
+
+.puntuacion-final {
+    margin: 25px;
+}
+
+.puntuacion-final p {
+    font-size: 20px;
+}
+
+#puntosFinales {
+    font-size: 65px;
+}
+
+
+/* ================= DERROTA ================= */
+
+#derrota {
+    background: linear-gradient(135deg, #421d22, #762f38);
+}
+
+#derrota p {
+    font-size: 20px;
+
+    margin: 20px;
+}
+
+
+/* ================= COMO JUGAR ================= */
+
+#comoJugar {
+    background: #18243d;
+}
+
+.ayuda {
+    max-width: 700px;
+}
+
+.ayuda h2 {
+    font-size: 40px;
+
+    margin-bottom: 25px;
+}
+
+.ayuda p {
+    font-size: 19px;
+
+    line-height: 1.6;
+
+    margin: 12px;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 700px) {
+
+    .contenedor-menu h1 {
+        font-size: 35px;
+    }
+
+    .misiones {
+        grid-template-columns: 1fr;
+    }
+
+    header {
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+    #escenario {
+        height: 350px;
+    }
+
+    #opciones {
+        grid-template-columns: 1fr;
+    }
+
+    .tarjeta-prueba {
+        padding: 20px;
+    }
+}

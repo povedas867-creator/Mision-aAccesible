@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Misión Accesible</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+
+<body>
+
+<!-- ================= MENÚ ================= -->
+
+<section id="menu" class="pantalla">
+    <div class="contenedor-menu">
+        <h1>🎮 MISIÓN ACCESIBLE</h1>
+        <p>Una aventura por la inclusión</p>
+
+        <button onclick="comenzarJuego()">▶ JUGAR</button>
+        <button onclick="mostrarComoJugar()">❓ CÓMO JUGAR</button>
+    </div>
+</section>
+
+
+<!-- ================= MISIONES ================= -->
+
+<section id="misiones" class="pantalla oculto">
+
+    <h2>🗺️ SELECCIONA UNA MISIÓN</h2>
+
+    <div class="misiones">
+
+        <button id="btnMision1" onclick="iniciarMision(1)">
+            ♿
+            <br>
+            MISIÓN 1
+            <br>
+            <small>Movilidad</small>
+        </button>
+
+        <button id="btnMision2" onclick="iniciarMision(2)">
+            🤟
+            <br>
+            MISIÓN 2
+            <br>
+            <small>Comunicación</small>
+        </button>
+
+        <button id="btnMision3" onclick="iniciarMision(3)">
+            👁️
+            <br>
+            MISIÓN 3
+            <br>
+            <small>Accesibilidad visual</small>
+        </button>
+
+        <button id="btnMision4" onclick="iniciarMision(4)">
+            🤝
+            <br>
+            MISIÓN 4
+            <br>
+            <small>Inclusión</small>
+        </button>
+
+    </div>
+
+    <p id="estadoMisiones">
+        Completa las misiones para avanzar.
+    </p>
+
+    <button onclick="volverMenu()">🏠 MENÚ</button>
+
+</section>
+
+
+<!-- ================= JUEGO ================= -->
+
+<section id="juego" class="pantalla oculto">
+
+    <header>
+
+        <div>
+            <h2 id="tituloMision">Misión</h2>
+            <p id="subtituloMision">Reto</p>
+        </div>
+
+        <div class="informacion">
+            <span>⭐ <b id="puntos">0</b></span>
+            <span>❤️ <b id="vidas">3</b></span>
+        </div>
+
+    </header>
+
+
+    <!-- ===== MISIÓN 1 ===== -->
+
+    <div id="juegoMision1">
+
+        <div id="escenario">
+
+            <div class="zona-inicio">INICIO</div>
+
+            <div class="ruta ruta1"></div>
+            <div class="ruta ruta2"></div>
+
+            <div class="obstaculo obstaculo1">🧱</div>
+            <div class="obstaculo obstaculo2">🧱</div>
+
+            <div id="personaje">🧑‍🦽</div>
+
+            <div id="objetivo">🏁</div>
+
+        </div>
+
+        <div id="instrucciones">
+
+            <h3>🎯 Tu misión</h3>
+
+            <p id="textoMision">
+                Lleva al personaje hasta la meta utilizando una ruta accesible.
+                Evita los obstáculos.
+            </p>
+
+        </div>
+
+        <div id="controles">
+
+            <button onclick="mover('arriba')">⬆️</button>
+
+            <div>
+                <button onclick="mover('izquierda')">⬅️</button>
+                <button onclick="mover('abajo')">⬇️</button>
+                <button onclick="mover('derecha')">➡️</button>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ===== MISIONES 2, 3 Y 4 ===== -->
+
+    <div id="prueba">
+
+        <div class="barra-progreso">
+
+            <div id="progresoBarra"></div>
+
+        </div>
+
+        <p id="progresoTexto">Prueba 1 de 3</p>
+
+        <div class="tarjeta-prueba">
+
+            <div id="iconoPrueba">🎯</div>
+
+            <h3 id="tituloPrueba">
+                Prueba
+            </h3>
+
+            <p id="pregunta">
+                Pregunta
+            </p>
+
+            <div id="opciones"></div>
+
+            <p id="mensajePrueba"></p>
+
+            <button id="botonContinuar"
+                    class="oculto"
+                    onclick="siguientePrueba()">
+                ➡️ CONTINUAR
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <button class="boton-volver" onclick="volverMisiones()">
+        🗺️ Volver a misiones
+    </button>
+
+</section>
+
+
+<!-- ================= VICTORIA ================= -->
+
+<section id="victoria" class="pantalla oculto">
+
+    <div class="resultado">
+
+        <div id="emojiVictoria">🎉</div>
+
+        <h1>¡MISIÓN COMPLETADA!</h1>
+
+        <h2 id="nombreVictoria">
+            ¡Excelente trabajo!
+        </h2>
+
+        <p id="mensajeVictoria">
+            Has completado el reto.
+        </p>
+
+        <div class="puntuacion-final">
+
+            <p>⭐ PUNTUACIÓN</p>
+
+            <strong id="puntosFinales">
+                0
+            </strong>
+
+        </div>
+
+        <button onclick="volverMisiones()">
+            🗺️ SIGUIENTE MISIÓN
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ================= DERROTA ================= -->
+
+<section id="derrota" class="pantalla oculto">
+
+    <div class="resultado">
+
+        <div>💔</div>
+
+        <h1>❌ MISIÓN FALLIDA</h1>
+
+        <p>
+            Te has quedado sin vidas.
+        </p>
+
+        <button onclick="reintentarMision()">
+            🔄 INTENTAR DE NUEVO
+        </button>
+
+        <button onclick="volverMisiones()">
+            🗺️ VOLVER A MISIONES
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ================= COMO JUGAR ================= -->
+
+<section id="comoJugar" class="pantalla oculto">
+
+    <div class="ayuda">
+
+        <h2>❓ ¿CÓMO JUGAR?</h2>
+
+        <p>
+            🎮 Completa las cuatro misiones relacionadas con la inclusión
+            y la accesibilidad.
+        </p>
+
+        <p>
+            ⭐ Consigue puntos respondiendo correctamente.
+        </p>
+
+        <p>
+            ❤️ Tienes tres vidas. Una respuesta incorrecta puede quitarte
+            una vida.
+        </p>
+
+        <p>
+            ♿ En la Misión 1 debes recorrer una ruta accesible.
+        </p>
+
+        <p>
+            🤟 En la Misión 2 tendrás que resolver situaciones de comunicación.
+        </p>
+
+        <p>
+            👁️ En la Misión 3 tendrás que identificar información visual
+            y señales.
+        </p>
+
+        <p>
+            🤝 En la Misión 4 tendrás que resolver situaciones de inclusión.
+        </p>
+
+        <button onclick="volverMenu()">
+            🏠 VOLVER AL MENÚ
+        </button>
+
+    </div>
+
+</section>
+
+
+<script src="juego.js"></script>
+
+</body>
+</html>
